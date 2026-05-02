@@ -1,0 +1,489 @@
+/* ============================================================
+   CSS Custom Properties — Design Tokens
+   ============================================================ */
+:root {
+  --navy:      #0A1628;
+  --navy-mid:  #112240;
+  --cyan:      #00C2FF;
+  --orange:    #FF6B35;
+  --surface:   #F4F7FF;
+  --text:      #1A1A2E;
+  --text-muted:#5A6480;
+  --white:     #FFFFFF;
+
+  --font-head: 'Syne', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  --radius:    12px;
+  --radius-lg: 20px;
+  --transition: 0.35s ease;
+}
+
+/* ============================================================
+   Reset & Base
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--surface);
+  color: var(--text);
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+img { display: block; max-width: 100%; }
+a   { color: inherit; text-decoration: none; }
+
+/* ============================================================
+   Shared Utilities
+   ============================================================ */
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.section-eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: 0.5rem;
+}
+.section-header h2 {
+  font-family: var(--font-head);
+  font-size: clamp(1.75rem, 5vw, 2.75rem);
+  color: var(--navy);
+  line-height: 1.2;
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+#hero {
+  min-height: 100svh;
+  background: var(--navy);
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  padding: 0 1.25rem;
+}
+
+.hero-nav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem 0;
+}
+.hero-nav .logo { height: 36px; width: auto; }
+.hero-nav .logo-beko { height: 28px; }
+.nav-divider {
+  width: 1px;
+  height: 28px;
+  background: rgba(255,255,255,0.2);
+}
+
+.hero-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem 0 4rem;
+  max-width: 720px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.hero-eyebrow {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: 1rem;
+}
+
+.hero-title {
+  font-family: var(--font-head);
+  font-size: clamp(2.2rem, 8vw, 4rem);
+  line-height: 1.1;
+  margin-bottom: 2.5rem;
+}
+.hero-title .accent { color: var(--cyan); }
+
+/* Metric cards */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+.metric-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(0,194,255,0.2);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  backdrop-filter: blur(4px);
+}
+.metric-value {
+  display: block;
+  font-family: var(--font-head);
+  font-size: clamp(1.6rem, 5vw, 2.2rem);
+  color: var(--cyan);
+  line-height: 1;
+  margin-bottom: 0.3rem;
+}
+.metric-label {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.65);
+  letter-spacing: 0.04em;
+}
+
+/* Testimonial */
+.testimonial {
+  border-left: 3px solid var(--cyan);
+  padding: 0.75rem 1rem 0.75rem 1.25rem;
+  margin-bottom: 2rem;
+  background: rgba(0,194,255,0.05);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+.testimonial p {
+  font-style: italic;
+  color: rgba(255,255,255,0.85);
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+.testimonial cite {
+  font-size: 0.78rem;
+  color: var(--cyan);
+  font-style: normal;
+  font-weight: 600;
+}
+
+/* CTA arrow button */
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--white);
+  border: 2px solid var(--orange);
+  border-radius: 50px;
+  padding: 0.75rem 1.75rem;
+  width: fit-content;
+  transition: background var(--transition), color var(--transition);
+}
+.hero-cta:hover {
+  background: var(--orange);
+  color: var(--white);
+}
+.hero-cta svg { flex-shrink: 0; }
+
+/* ============================================================
+   TEAM
+   ============================================================ */
+#team {
+  padding: 5rem 1.25rem;
+  background: var(--white);
+}
+
+.group-photo-wrap {
+  max-width: 900px;
+  margin: 0 auto 3rem;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  aspect-ratio: 16/7;
+  background: #e0e6f0;
+}
+.group-photo { width: 100%; height: 100%; object-fit: cover; }
+
+/* Placeholder when image missing */
+.photo-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+.photo-placeholder::after { content: 'Grup fotoğrafı buraya eklenecek'; }
+
+/* Team grid — 2 cols mobile, up to 4 on wide screens */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.member-card {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem 1rem;
+  text-align: center;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.member-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(10,22,40,0.1);
+}
+
+/* Avatar photo/cartoon swap on hover */
+.avatar-wrap {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 1rem;
+  border: 3px solid var(--cyan);
+}
+.avatar-wrap img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity var(--transition);
+}
+.avatar-cartoon { opacity: 0; }
+.member-card:hover .avatar-photo   { opacity: 0; }
+.member-card:hover .avatar-cartoon { opacity: 1; }
+
+/* Fallback grey circle when images missing */
+.avatar-wrap::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #cdd5e0;
+  border-radius: 50%;
+}
+
+.member-name {
+  font-family: var(--font-head);
+  font-size: 1rem;
+  color: var(--navy);
+  margin-bottom: 0.35rem;
+}
+.member-expertise {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: var(--navy);
+  color: var(--cyan);
+  border-radius: 50px;
+  padding: 0.2rem 0.75rem;
+  margin-bottom: 0.75rem;
+}
+.member-fun {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+  min-height: 2.5em;
+}
+.cv-btn {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--navy);
+  border: 1.5px solid var(--navy);
+  border-radius: 50px;
+  padding: 0.35rem 1rem;
+  transition: background var(--transition), color var(--transition);
+}
+.cv-btn:hover {
+  background: var(--navy);
+  color: var(--cyan);
+}
+
+/* ============================================================
+   STORY TIMELINE
+   ============================================================ */
+#story {
+  padding: 5rem 1.25rem;
+  background: var(--surface);
+}
+
+#story .section-header h2 {
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+.timeline {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  position: relative;
+}
+
+/* Vertical spine line on desktop */
+@media (min-width: 700px) {
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0; bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--cyan), var(--orange));
+    transform: translateX(-50%);
+    border-radius: 2px;
+  }
+}
+
+.stage {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  position: relative;
+}
+
+/* Scroll reveal: hidden until .visible is added by JS */
+.stage.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.stage.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+.stage-number {
+  font-family: var(--font-head);
+  font-size: 3rem;
+  color: rgba(0,194,255,0.15);
+  line-height: 1;
+  font-weight: 800;
+  user-select: none;
+}
+
+.stage-img-wrap {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  background: #dde3ef;
+}
+.stage-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.stage:hover .stage-img-wrap img { transform: scale(1.03); }
+
+.img-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+.img-placeholder::after { content: 'Fotoğraf eklenecek'; }
+
+.stage-text h3 {
+  font-family: var(--font-head);
+  font-size: 1.3rem;
+  color: var(--navy);
+  margin-bottom: 0.5rem;
+}
+.stage-text p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+/* Final stage highlighted */
+.stage-final .stage-text h3 { color: var(--orange); }
+
+/* Desktop: alternating layout */
+@media (min-width: 700px) {
+  .stage {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 2.5rem;
+    width: calc(50% - 2rem);
+  }
+  .stage:nth-child(odd)  { align-self: flex-start; margin-right: auto; padding-right: 2rem; }
+  .stage:nth-child(even) { align-self: flex-end;   margin-left: auto;  padding-left: 2rem;  flex-direction: row-reverse; }
+
+  .stage-img-wrap { flex: 0 0 180px; }
+  .stage-text { flex: 1; padding-top: 0.5rem; }
+  .stage-number { position: absolute; top: -1.5rem; font-size: 2.5rem; }
+
+  .stage:nth-child(odd)  .stage-number { right: -3.5rem; }
+  .stage:nth-child(even) .stage-number { left: -3.5rem; }
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+#footer {
+  background: var(--navy);
+  color: var(--white);
+  text-align: center;
+  padding: 5rem 1.25rem 2.5rem;
+}
+
+.footer-content { max-width: 600px; margin: 0 auto 3rem; }
+
+.footer-eyebrow {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: 1.25rem;
+}
+
+.footer-title {
+  font-family: var(--font-head);
+  font-size: clamp(1.8rem, 6vw, 3rem);
+  line-height: 1.15;
+  margin-bottom: 0.75rem;
+}
+
+.footer-sub {
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 2rem;
+}
+
+.stand-badge {
+  display: inline-block;
+  background: rgba(0,194,255,0.12);
+  border: 1px solid var(--cyan);
+  color: var(--cyan);
+  border-radius: 50px;
+  padding: 0.6rem 1.75rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.06em;
+}
+
+.footer-copy {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.3);
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 1.5rem;
+}
+
+/* ============================================================
+   Responsive overrides
+   ============================================================ */
+@media (min-width: 600px) {
+  .metrics-grid { grid-template-columns: repeat(4, 1fr); }
+  .team-grid    { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (min-width: 900px) {
+  .team-grid { grid-template-columns: repeat(4, 1fr); }
+  #hero, #team, #story, #footer { padding-left: 2.5rem; padding-right: 2.5rem; }
+}
