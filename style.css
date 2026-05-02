@@ -92,7 +92,20 @@ a   { color: inherit; text-decoration: none; }
   display: flex;
   flex-direction: column;
   padding: 0 1.25rem;
+  position: relative;
+  overflow: hidden;
 }
+/* Factory background image — place your photo at assets/factory.jpg */
+#hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('assets/factory.jpg') center/cover no-repeat;
+  opacity: 0.07;
+  pointer-events: none;
+  z-index: 0;
+}
+#hero > * { position: relative; z-index: 1; }
 
 .hero-nav {
   display: flex;
@@ -539,12 +552,103 @@ a   { color: inherit; text-decoration: none; }
 
 .footer-accent { color: var(--orange); }
 
+/* Download button */
+.download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--orange);
+  color: var(--white);
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: 50px;
+  padding: 0.75rem 1.75rem;
+  margin-top: 0.5rem;
+  transition: opacity var(--transition), transform var(--transition);
+}
+.download-btn:hover { opacity: 0.85; transform: translateY(-2px); }
+
 .footer-copy {
   font-size: 0.75rem;
   color: rgba(255,255,255,0.3);
   border-top: 1px solid rgba(255,255,255,0.08);
   padding-top: 1.5rem;
 }
+
+/* Work order bar */
+.workorder-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1rem;
+  background: rgba(0,194,255,0.08);
+  border: 1px solid rgba(110,198,230,0.25);
+  border-radius: var(--radius);
+  padding: 0.9rem 1.25rem;
+  margin-bottom: 1.5rem;
+}
+.wo-label { font-size: 0.82rem; color: rgba(255,255,255,0.65); }
+.wo-value .metric-value {
+  font-family: var(--font-head);
+  font-size: 1.6rem;
+  color: var(--cyan);
+  display: inline;
+}
+.wo-breakdown {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 0.04em;
+  width: 100%;
+}
+
+/* ============================================================
+   COMPARISON TABLE
+   ============================================================ */
+#comparison {
+  padding: 5rem 1.25rem;
+  background: var(--white);
+}
+#comparison .section-header h2 { color: var(--navy); }
+.accent-text { color: var(--cyan); }
+
+.table-wrap {
+  max-width: 860px;
+  margin: 0 auto;
+  overflow-x: auto;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 4px 24px rgba(10,22,40,0.08);
+}
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+.compare-table thead tr {
+  background: var(--navy);
+  color: var(--white);
+}
+.compare-table th {
+  padding: 0.85rem 1rem;
+  text-align: left;
+  font-family: var(--font-head);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+}
+.compare-table td {
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid #eef0f5;
+  color: var(--text-muted);
+}
+.compare-table tbody tr:last-child td { border-bottom: none; }
+.compare-table tbody tr:nth-child(even) { background: var(--surface); }
+.col-ours { color: var(--navy) !important; font-weight: 600; }
+.col-imp  { font-weight: 700; text-align: center; }
+.compare-table .total-row td {
+  background: rgba(44,62,107,0.06);
+  border-top: 2px solid var(--navy);
+}
+.compare-table thead .col-ours { color: var(--cyan) !important; }
+.compare-table thead .col-imp  { color: var(--orange) !important; }
 
 /* ============================================================
    BEHIND THE SCENES GALLERY
