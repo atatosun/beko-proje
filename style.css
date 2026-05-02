@@ -2,13 +2,13 @@
    CSS Custom Properties — Design Tokens
    ============================================================ */
 :root {
-  --navy:      #0A1628;
-  --navy-mid:  #112240;
-  --cyan:      #00C2FF;
-  --orange:    #FF6B35;
-  --surface:   #F4F7FF;
-  --text:      #1A1A2E;
-  --text-muted:#5A6480;
+  --navy:      #2C3E6B;
+  --navy-mid:  #3D5280;
+  --cyan:      #6EC6E6;
+  --orange:    #F4A26B;
+  --surface:   #F7F3EF;
+  --text:      #2D2D3A;
+  --text-muted:#7A7F9A;
   --white:     #FFFFFF;
 
   --font-head: 'Syne', sans-serif;
