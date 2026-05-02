@@ -303,6 +303,21 @@ a   { color: inherit; text-decoration: none; }
   color: var(--cyan);
 }
 
+/* Advisor row — centered single card below the team grid */
+.advisor-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+.advisor-card {
+  max-width: 220px;
+  border: 2px solid var(--cyan);
+}
+.advisor-badge {
+  background: var(--cyan) !important;
+  color: var(--navy) !important;
+}
+
 /* ============================================================
    STORY TIMELINE
    ============================================================ */
