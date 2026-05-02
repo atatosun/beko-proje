@@ -196,7 +196,7 @@ a   { color: inherit; text-decoration: none; }
   margin: 0 auto 3rem;
   border-radius: var(--radius-lg);
   overflow: hidden;
-  aspect-ratio: 16/7;
+  aspect-ratio: 16/9;
   background: #e0e6f0;
 }
 .group-photo { width: 100%; height: 100%; object-fit: cover; }
@@ -250,9 +250,9 @@ a   { color: inherit; text-decoration: none; }
   object-fit: cover;
   transition: opacity var(--transition);
 }
-.avatar-cartoon { opacity: 0; }
-.member-card:hover .avatar-photo   { opacity: 0; }
-.member-card:hover .avatar-cartoon { opacity: 1; }
+.avatar-photo   { opacity: 0; }
+.member-card:hover .avatar-photo   { opacity: 1; }
+.member-card:hover .avatar-cartoon { opacity: 0; }
 
 /* Fallback grey circle when images missing */
 .avatar-wrap::before {
