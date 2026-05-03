@@ -475,6 +475,9 @@ a   { color: inherit; text-decoration: none; }
 }
 .stage:hover .stage-img-wrap img { transform: scale(1.03); }
 
+/* Per-stage focal point overrides */
+.stage:nth-child(6) .stage-img-wrap img { object-position: center 70%; }
+
 .img-placeholder {
   display: flex;
   align-items: center;
